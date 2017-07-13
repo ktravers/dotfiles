@@ -3,7 +3,6 @@
 # https://github.com/flatiron-school/dotfiles/blob/master/bash_profile
 # ======================
 
-
 # Prompt
 # =====================
 # called in prompt to output active git branch
@@ -17,9 +16,7 @@ function prompt {
     PS2='> '
     PS4='+ '
 }
-
 prompt
-
 
 # Environment Variables
 # =====================
@@ -51,10 +48,9 @@ export EDITOR="subl -w"
 export CLICOLOR=1
 export LSCOLORS=gxxxxxxxcxxxxxcxcxgxgx
 export GREP_OPTIONS='--color=always'
-export GREP_COLOR='ne'
 
 # Paths
-
+# =====================
 # The USR_PATHS variable will store all relevant /usr paths for easier usage
 # Each path is separated via a : and we always use absolute paths.
 
