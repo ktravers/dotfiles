@@ -46,8 +46,6 @@ export EDITOR="subl -w"
 
 #Format ls, grep
 export CLICOLOR=1
-export LSCOLORS=gxxxxxxxcxxxxxcxcxgxgx
-export GREP_OPTIONS='--color=always'
 
 # Paths
 # =====================
