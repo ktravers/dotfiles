@@ -1,5 +1,6 @@
 # KTRAVERS BASH PROFILE
 # forked from Flatiron School bash profile
+# https://github.com/flatiron-school/dotfiles/blob/master/bash_profile
 # ======================
 
 
@@ -16,9 +17,7 @@ function prompt {
     PS2='> '
     PS4='+ '
 }
-
 prompt
-
 
 # Environment Variables
 # =====================
@@ -50,11 +49,10 @@ export EDITOR="subl -w"
 export CLICOLOR=1
 
 # Paths
-
+# =====================
 # The USR_PATHS variable will store all relevant /usr paths for easier usage
 # Each path is separated via a : and we always use absolute paths.
 
-# A bit about the /usr directory
 # The /usr directory is a convention from Linux that creates a common place to put
 # files and executables that the entire system needs access too. It tries to be user
 # independent, so whichever user is logged in should have permissions to the /usr directory.
@@ -108,30 +106,30 @@ function psg {
 # USE: extract imazip.zip
 #      extract imatar.tar
 function extract () {
-if [ -f $1 ] ; then
-  case $1 in
-    *.tar.bz2)  tar xjf $1      ;;
-    *.tar.gz)   tar xzf $1      ;;
-    *.bz2)      bunzip2 $1      ;;
-    *.rar)      rar x $1        ;;
-    *.gz)       gunzip $1       ;;
-    *.tar)      tar xf $1       ;;
-    *.tbz2)     tar xjf $1      ;;
-    *.tgz)      tar xzf $1      ;;
-    *.zip)      unzip $1        ;;
-    *.Z)        uncompress $1   ;;
-    *)          echo "'$1' cannot be extracted via extract()" ;;
-  esac
-else
-  echo "'$1' is not a valid file"
-fi
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)  tar xjf $1      ;;
+      *.tar.gz)   tar xzf $1      ;;
+      *.bz2)      bunzip2 $1      ;;
+      *.rar)      rar x $1        ;;
+      *.gz)       gunzip $1       ;;
+      *.tar)      tar xf $1       ;;
+      *.tbz2)     tar xjf $1      ;;
+      *.tgz)      tar xzf $1      ;;
+      *.zip)      unzip $1        ;;
+      *.Z)        uncompress $1   ;;
+      *)          echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
 
 # A function to git clone a repo, cd into the newly created directory,
 # and open all the repo's files in Sublime Text 3
 # USE: gcsubl git@github.com:ktravers/crowdfunding-sql-lab-ruby-007.git
 # credit: Jeremy Sklarsky (http://jeremysklarsky.github.io/)
-  function gcsubl () {
+function gcsubl () {
   git clone $1;
   cd `basename $1 .git`;
   open . -a /Applications/Sublime\ Text.app;
@@ -157,8 +155,6 @@ alias l='ls -lah'
 # db
 alias dbmtest='rake db:migrate RAILS_ENV=test'
 alias dbmdev='rake db:migrate RAILS_ENV=development'
-alias schemareload="rm db/schema.rb && rake db:migrate"
-# credit: http://danielchangnyc.github.io/blog/2014/05/15/two-bash-profile-aliases/
 
 # Git
 alias gco="git checkout"
@@ -166,8 +162,7 @@ alias gcl="git clone"
 alias gst="git status"
 alias gd="git diff | mate"
 alias gl="git pull"
-alias glr="git pull --rebase"
-alias glrp="git pull --rebase --prune"
+alias glr="git pull --rebase --prune"
 alias gp="git push"
 alias gc="git commit -v"
 alias gca="git commit -v -a"
