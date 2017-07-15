@@ -1,22 +1,24 @@
 # KTRAVERS BASH PROFILE
 # forked from Flatiron School bash profile
-# https://github.com/flatiron-school/dotfiles/blob/master/bash_profile
 # ======================
+
 
 # Prompt
 # =====================
 # called in prompt to output active git branch
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
 # build prompt and call below
 function prompt {
-  export PS1='\n\e[0;30m\e[46m\t\e[0;36m \u @\h: \W\e[0;35m$(parse_git_branch)\e[0;37m\n⚡ '
+  export PS1='\n\e[0;30m\e[46m\t\e[0;36m \u @\h: \W\e[0;35m ($(parse_git_branch))\e[0;37m\n⚡ '
     PS2='> '
     PS4='+ '
 }
+
 prompt
+
 
 # Environment Variables
 # =====================
@@ -48,7 +50,7 @@ export EDITOR="subl -w"
 export CLICOLOR=1
 
 # Paths
-# =====================
+
 # The USR_PATHS variable will store all relevant /usr paths for easier usage
 # Each path is separated via a : and we always use absolute paths.
 
@@ -165,13 +167,12 @@ alias gst="git status"
 alias gd="git diff | mate"
 alias gl="git pull"
 alias glr="git pull --rebase"
+alias glrp="git pull --rebase --prune"
 alias gp="git push"
 alias gc="git commit -v"
 alias gca="git commit -v -a"
 alias gcam="git commit -am"
-alias gb="git branch"
 alias gba="git branch -a"
-alias gbb="git branch -b"
 alias gbv="git branch -v"
 alias gbdall="git branch | grep -v 'master' | xargs git branch -D"
 alias gcm="git checkout master"
@@ -189,6 +190,8 @@ alias subl='open -a /Applications/Sublime\ Text.app'
 # Hub
 eval "$(hub alias -s)"
 alias hubpr="hub pull-request -o"
+alias hubb="hub browse"
+alias hubc="hub compare $(parse_git_branch)"
 
 # Rails
 alias rs='rails s'
