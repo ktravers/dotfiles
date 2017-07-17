@@ -8,12 +8,12 @@
 # =====================
 # called in prompt to output active git branch
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # build prompt and call below
 function prompt {
-  export PS1='\n\e[0;30m\e[46m\t\e[0;36m \u @\h: \W\e[0;35m ($(parse_git_branch))\e[0;37m\n⚡ '
+  export PS1='\n\e[0;30m\e[46m\t\e[0;36m \u @\h: \W\e[0;35m$(parse_git_branch)\e[0;37m\n⚡ '
     PS2='> '
     PS4='+ '
 }
@@ -186,7 +186,7 @@ alias subl='open -a /Applications/Sublime\ Text.app'
 eval "$(hub alias -s)"
 alias hubpr="hub pull-request -o"
 alias hubb="hub browse"
-alias hubc="hub compare $(parse_git_branch)"
+alias hubc="hub compare $(git rev-parse --abbrev-ref HEAD)"
 
 # Rails
 alias rs='rails s'
