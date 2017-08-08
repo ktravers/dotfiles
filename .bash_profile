@@ -197,6 +197,10 @@ alias rcs='rails c --sandbox'
 alias reveal='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias rehide='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 
+# cssh
+# https://github.com/flatiron-labs/operations/wiki/i2cssh
+alias cssh='i2cssh -c'
+
 # Case-Insensitive Auto Completion
 # =====================
 bind "set completion-ignore-case on"
