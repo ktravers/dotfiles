@@ -147,6 +147,15 @@ function ibgo () {
   git checkout -- db/schema.rb               # discard db schema changes
 }
 
+# A function to restore local db from latest prod db backup
+# USE: cd into /ironboard first, then run command
+function ibdbrestore () {
+  bin/rake ironboard:download_db
+  bin/rake db:drop
+  bin/rake ironboard:restore_db
+  bin/rake ironboard:reset_sequence
+}
+
 # Aliases
 # =====================
 # LS
