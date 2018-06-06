@@ -147,14 +147,20 @@ function ibgo () {
   git checkout -- db/schema.rb               # discard db schema changes
 }
 
-# A function to restore local db from latest prod db backup
-# USE: cd into /ironboard first, then run command
-function ibdbrestore () {
-  bin/rake ironboard:download_db
-  bin/rake db:drop
-  bin/rake ironboard:restore_db
-  bin/rake ironboard:reset_sequence
+# Checkout next commit on current branch
+# Source: https://stackoverflow.com/a/23172256/3880374
+function next () {
+  CURRENT_BRANCH=`git for-each-ref --format='%(refname:short)' refs/heads --contains`
+  NEXT_COMMIT=`git log --format=%H --reverse --ancestry-path HEAD.."$CURRENT_BRANCH" | head -1`
+  git checkout "$NEXT_COMMIT"
 }
+
+# Checkout previous commit on current branch
+# Source: https://stackoverflow.com/a/23172256/3880374
+function prev () {
+  git checkout HEAD~
+}
+
 
 # Aliases
 # =====================
