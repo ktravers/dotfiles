@@ -161,6 +161,12 @@ function prev () {
   git checkout HEAD~
 }
 
+# Magical banner
+# Source: @drewprice & @notactuallypagemcconnell
+function banner() {
+  figlet -f banner "$1" | sed -e"s/#/:$2:/g" | sed -e"s/ /:$3:/g" | pbcopy
+}
+
 
 # Aliases
 # =====================
