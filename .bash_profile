@@ -239,13 +239,15 @@ bind "set completion-ignore-case on"
 
 source ~/.bashrc
 
+# Kiex
+# Mandatory loading of kiex into the shell
+test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+
 # NVM
 # Mandatory loading of NVM into the shell
-# This must be the last line of your bash_profile always
 export NVM_DIR="/Users/kLocal/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # RVM
 # Mandatory loading of RVM into the shell
-# This must be the last line of your bash_profile always
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
