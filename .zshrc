@@ -16,7 +16,6 @@ plugins=(
 	jira
 	mix
 	osx
-	rails
 	sublime
 )
 
@@ -101,11 +100,16 @@ alias gbv="git branch -v"
 alias gbdall="git branch | grep -v 'master' | xargs git branch -D"
 alias gcm="git checkout master"
 
+# Homebrew
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+
 # Hub
 alias hubpr="hub pull-request -o"
 
-# Homebrew
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+# Rails
+alias rs='rails s'
+alias rc='rails c'
+alias rcs='rails c --sandbox'
 
 # Environment Variables
 # =====================
