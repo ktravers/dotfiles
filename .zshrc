@@ -32,7 +32,7 @@ function parse_git_branch {
 # ZSH_THEME_GIT_PROMPT_CLEAN="$fg[green]"
 
 PROMPT='
-%* %n@%m: %1d$(parse_git_branch)
+%F{cyan}%* %F{magenta}%n@%m: %{$reset_color%}%1d$(parse_git_branch)
 ⚡ '
 
 # Helper Functions
@@ -99,6 +99,7 @@ alias gco="git checkout"
 alias gbv="git branch -v"
 alias gbdall="git branch | grep -v 'master' | xargs git branch -D"
 alias gcm="git checkout master"
+alias glr="git pull --rebase --prune"
 
 # Homebrew
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
