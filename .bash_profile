@@ -135,16 +135,27 @@ function gcsubl () {
   open . -a /Applications/Sublime\ Text.app;
 }
 
-# A function to bring local ironboard repo completely up to date
-# USE: cd into /ironboard first, then run command
-function ibgo () {
-  git pull --rebase --prune                  # pull down latest from master + prune unused branches
-  git gc                                     # compress
-  bundle                                     # run bundler to install/update gems
-  yarn install                               # run yarn install to install/update packages
-  bin/rake db:migrate RAILS_ENV=development  # run dev db migrations
-  bin/rake db:migrate RAILS_ENV=test         # run test db migrations
-  git checkout -- db/schema.rb               # discard db schema changes
+# A function to bring local rails project completely up to date
+# USE: cd into repo first, then run command
+function railsgo () {
+  git pull --rebase --prune                 # pull latest from master + prune unused branches
+  git gc                                    # compress
+  bundle                                    # run bundler to install/update gems
+  yarn install                              # run yarn install to install/update packages
+  bin/rake db:migrate RAILS_ENV=development # run dev db migrations
+  bin/rake db:migrate RAILS_ENV=test        # run test db migrations
+  git checkout -- db/schema.rb              # discard db schema changes
+}
+
+# A function to bring local phoenix project completely up to date
+# USE: cd into repo first, then run command
+function mixgo () {
+  git pull --rebase --prune                 # pull latest from master + prune unused branches
+  git gc                                    # compress
+  mix deps.get                              # update elixir deps
+  cd apps/*/assets/ && npm install && cd -  # update js deps
+  mix ecto.migrate                          # run dev db migrations
+  mix ecto.migrate MIX_ENV=test             # run test db migrations
 }
 
 # Checkout next commit on current branch
