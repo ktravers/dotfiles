@@ -163,7 +163,7 @@ export PATH="$HOME/.bin:~/bin:$PATH"
 export GPG_TTY=$(tty)
 
 eval export
-eval "$(direnv hook bash)" # Load direnv for managing environment variables
+eval "$(direnv hook zsh)" # Load direnv for managing environment variables
 eval "$(hub alias -s)"
 eval "$(rbenv init -)"
 
