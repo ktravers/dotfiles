@@ -3,7 +3,6 @@
 # https://github.com/flatiron-school/dotfiles/blob/master/bash_profile
 # ======================
 
-
 # Prompt
 # =====================
 # called in prompt to output active git branch
@@ -178,7 +177,6 @@ function banner() {
   figlet -f banner "$1" | sed -e"s/#/:$2:/g" | sed -e"s/ /:$3:/g" | pbcopy
 }
 
-
 # Aliases
 # =====================
 # LS
@@ -233,22 +231,22 @@ alias rehide='defaults write com.apple.finder AppleShowAllFiles NO; killall Find
 # https://github.com/flatiron-labs/operations/wiki/i2cssh
 alias cssh='i2cssh -c'
 
-# Case-Insensitive Auto Completion
-# =====================
-bind "set completion-ignore-case on"
-
 # Final Configurations and Plugins
 # =====================
+
+# Case-Insensitive Auto Completion
+bind "set completion-ignore-case on"
+
 # Git Bash Completion
-# Will activate bash git completion if installed
-# via homebrew
+# Will activate bash git completion if installed via homebrew
 # if [ -f `brew --prefix`/etc/bash_completion ]; then
 #   . `brew --prefix`/etc/bash_completion
 #   GIT_PS1_SHOWDIRTYSTATE=true
 #   GIT_PS1_SHOWUNTRACKEDFILES=true
 # fi
 
-source ~/.bashrc
+# Load direnv for managing environment variables
+eval "$(direnv hook bash)"
 
 # Kiex
 # Mandatory loading of kiex into the shell
