@@ -152,19 +152,18 @@ export EDITOR="subl -w"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/$USER/.oh-my-zsh"
-# Set name of the theme to load
-# ZSH_THEME="robbyrussell"
 
-# recommended by brew doctor
-export PATH="/usr/local/bin:$PATH"
-
-export PATH="$HOME/.bin:~/bin:$PATH"
+# Build PATH
+export USR_PATHS="/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin"
+export PATH="$USR_PATHS:$PATH"
 
 export GPG_TTY=$(tty)
 
-eval export
-eval "$(direnv hook zsh)" # Load direnv for managing environment variables
+eval "$(direnv hook zsh)"
 eval "$(hub alias -s)"
-eval "$(rbenv init -)"
 
 source $ZSH/oh-my-zsh.sh
+
+. /usr/local/opt/asdf/asdf.sh
+
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
