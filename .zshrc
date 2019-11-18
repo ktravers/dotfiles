@@ -32,8 +32,8 @@ function parse_git_branch {
 # ZSH_THEME_GIT_PROMPT_CLEAN="$fg[green]"
 
 PROMPT='
-%F{cyan}%* %F{magenta}%n@%m: %{$reset_color%}%1d$(parse_git_branch)
-⚡ '
+%F{cyan}%D{%Y-%m-%d} %* %F{magenta}%n@%m: %{$reset_color%}%1d$(parse_git_branch)
+🏄‍♀️ '
 
 # Helper Functions
 # =====================
@@ -41,11 +41,6 @@ PROMPT='
 # A function to CD into my development directory from anywhere
 function development {
   cd /Users/$USER/Development/$@
-}
-
-# A function to CD into my local ironboard directory from anywhere
-function ironboard {
-  cd /Users/$USER/Development/Flatiron/ironboard/$@
 }
 
 # A function to CD into my local blog directory from anywhere
