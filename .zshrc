@@ -1,6 +1,5 @@
 # KTRAVERS ZSHRC
-# forked from Flatiron School bash profile
-# https://github.com/flatiron-school/dotfiles/blob/master/.bash_profile
+# https://github.com/ktravers/dotfiles/blob/master/.zshrc
 # ======================
 
 # Plugins
