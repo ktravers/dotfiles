@@ -1,0 +1,38 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"BracketHighlighter",
+		"Clipboard Manager",
+		"Color Highlighter",
+		"Colorsublime",
+		"CSSLint",
+		"DashDoc",
+		"Emmet",
+		"Emmet Css Snippets",
+		"ESLint",
+		"GhostText",
+		"Git",
+		"Git blame",
+		"GitGutter",
+		"Highlight Dodgy Chars",
+		"HTML Snippets",
+		"HyperClick",
+		"JSX",
+		"Origami",
+		"Package Control",
+		"RuboCop",
+		"SCSS",
+		"SideBarEnhancements",
+		"SublimeLinter-contrib-scss-lint",
+		"SublimeLinter-csslint",
+		"SublimeLinter-eslint",
+		"SublimeLinter-rubocop",
+		"SublimeLinter-ruby",
+		"TrailingSpaces"
+	]
+}
