@@ -19,16 +19,21 @@
   "breadcrumbs.showStrings": false,
   "breadcrumbs.showTypeParameters": false,
   "breadcrumbs.symbolPath": "off",
+  "editor.find.addExtraSpaceOnTop": false,
+  // TODO: enable after https://github.com/rubyide/vscode-ruby/issues/548 is merged
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  // end TODO
   "editor.minimap.enabled": false,
   "editor.renderControlCharacters": true,
   "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
   "editor.rulers": [
     80,
     100
   ],
-  // TODO: update after https://github.com/rubyide/vscode-ruby/issues/548 is merged
-  "editor.formatOnSave": false,
   "editor.scrollBeyondLastLine": false,
+  "emmet.triggerExpansionOnTab": true,
   "eslint.run": "onSave",
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
@@ -47,19 +52,18 @@
   "ruby.useLanguageServer": true,
   "search.enableSearchEditorPreview": true,
   "search.location": "panel",
+  "search.showLineNumbers": true,
+  "terminal.integrated.shell.osx": "/bin/zsh",
   "window.zoomLevel": 1,
   "workbench.activityBar.visible": false,
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.highlightModifiedTabs": true,
+  "workbench.settings.openDefaultKeybindings": true,
+  "workbench.settings.openDefaultSettings": true,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.statusBar.visible": true,
   "workbench.tree.indent": 4,
-  "editor.tabSize": 2,
-  "editor.formatOnPaste": true,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
-  "search.showLineNumbers": true,
-  "editor.find.addExtraSpaceOnTop": false,
   // Specific to github/github
   "ruby.interpreter.commandPath": "bin/safe-ruby-quick",
   "ruby.lint": {
