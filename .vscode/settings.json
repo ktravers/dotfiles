@@ -48,7 +48,6 @@
   "gitlens.codeLens.authors.enabled": false,
   "gitlens.codeLens.enabled": false,
   "ruby.format": "rubocop",
-  "ruby.useBundler": false,
   "ruby.useLanguageServer": true,
   "search.enableSearchEditorPreview": true,
   "search.location": "panel",
@@ -65,12 +64,13 @@
   "workbench.statusBar.visible": true,
   "workbench.tree.indent": 4,
   // Specific to github/github
-  "ruby.interpreter.commandPath": "bin/safe-ruby-quick",
-  "ruby.lint": {
-    "rubocop": {
-      "command": "bin/rubocop",
-      "useBundler": false,
-    },
-  },
-  "ruby.pathToBundler": "bin/bundle"
+  // "ruby.interpreter.commandPath": "bin/safe-ruby-quick",
+  // "ruby.lint": {
+  //   "rubocop": {
+  //     "command": "bin/rubocop",
+  //     "useBundler": false,
+  //   },
+  // },
+  // "ruby.pathToBundler": "bin/bundle",
+  // "ruby.useBundler": false,
 }
