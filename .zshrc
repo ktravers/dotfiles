@@ -47,10 +47,23 @@ function blog {
   cd /Users/$USER/Development/ktravers.github.io/$@
 }
 
+# A function to bring github/github rails project completely up to date
+# USE: cd into repo first, then run command
+function ghup () {
+  git checkout master                       # checkout master branch
+  git pull origin master --rebase --prune   # pull latest from master + prune unused branches
+  git gc                                    # compress
+  bin/bootstrap                             # bootstrap dependencies (gems, npm packages)
+  bin/rake db:migrate RAILS_ENV=development # run dev db migrations
+  bin/rake db:migrate RAILS_ENV=test        # run test db migrations
+  git checkout -- db/schema.rb              # discard db schema changes
+}
+
 # A function to bring local rails project completely up to date
 # USE: cd into repo first, then run command
-function railsgo () {
-  git pull --rebase --prune                 # pull latest from master + prune unused branches
+function railsup () {
+  git checkout master                       # checkout master branch
+  git pull origin master --rebase --prune   # pull latest from master + prune unused branches
   git gc                                    # compress
   bundle                                    # run bundler to install/update gems
   yarn install                              # run yarn install to install/update packages
@@ -61,8 +74,9 @@ function railsgo () {
 
 # A function to bring local phoenix project completely up to date
 # USE: cd into repo first, then run command
-function mixgo () {
-  git pull --rebase --prune                 # pull latest from master + prune unused branches
+function mixup () {
+  git checkout master                       # checkout master branch
+  git pull origin master --rebase --prune   # pull latest from master + prune unused branches
   git gc                                    # compress
   mix deps.get                              # update elixir deps
   cd apps/*/assets/ && npm install && cd -  # update js deps
