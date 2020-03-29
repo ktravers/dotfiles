@@ -5,30 +5,23 @@
 # Plugins
 # =====================
 plugins=(
-	bundler
-	capistrano
-	copyfile
-	docker
-	dotenv
-	git
-	gpg-agent
-	jira
-	mix
-	osx
-	sublime
+  bundler
+  capistrano
+  copyfile
+  docker
+  dotenv
+  git
+  gpg-agent
+  mix
+  osx
+  sublime
 )
 
 # Prompt
 # =====================
-
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-
-# ZSH_THEME_GIT_PROMPT_PREFIX="[git:"
-# ZSH_THEME_GIT_PROMPT_SUFFIX="]$reset_color"
-# ZSH_THEME_GIT_PROMPT_DIRTY="$fg[red]+"
-# ZSH_THEME_GIT_PROMPT_CLEAN="$fg[green]"
 
 PROMPT='
 %F{cyan}%D{%Y-%m-%d} %* %F{magenta}%n@%m: %{$reset_color%}%1d$(parse_git_branch)
@@ -36,7 +29,6 @@ PROMPT='
 
 # Helper Functions
 # =====================
-
 # A function to CD into my development directory from anywhere
 function development {
   cd /Users/$USER/Development/$@
@@ -45,18 +37,6 @@ function development {
 # A function to CD into my local blog directory from anywhere
 function blog {
   cd /Users/$USER/Development/ktravers.github.io/$@
-}
-
-# A function to bring github/github rails project completely up to date
-# USE: cd into repo first, then run command
-function ghup () {
-  git checkout master                       # checkout master branch
-  git pull origin master --rebase --prune   # pull latest from master + prune unused branches
-  git gc                                    # compress
-  bin/bootstrap                             # bootstrap dependencies (gems, npm packages)
-  bin/rake db:migrate RAILS_ENV=development # run dev db migrations
-  bin/rake db:migrate RAILS_ENV=test        # run test db migrations
-  git checkout -- db/schema.rb              # discard db schema changes
 }
 
 # A function to bring local rails project completely up to date
@@ -124,31 +104,39 @@ function banner() {
 
 # Aliases
 # =====================
-
 # Git
 alias gco="git checkout"
 alias gbv="git branch -v"
 alias gbdall="git branch | grep -v 'master' | xargs git branch -D"
 alias gcm="git checkout master"
-alias glr="git pull --rebase --prune"
+alias glr="git pull --rebase --prune && git gc"
+alias stash="git stash -u"
+# https://github.com/r00k/dotfiles/blob/master/zsh/aliases#L97
+alias repush="git pull --rebase && git push"
 
 # Homebrew
 alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 
-# Hub
-alias hubpr="hub pull-request -o"
+# GitHub CLI
+# https://github.com/cli/cli
+alias newpr="gh pr create -d -w"
 
 # Rails
 alias rs='rails s'
 alias rc='rails c'
 alias rcs='rails c --sandbox'
 
+# Ruby
+# credit: James Coglan "Building Git" https://shop.jcoglan.com/building-git/
+alias inflate='ruby -r zlib -e "STDOUT.write Zlib::Inflate.inflate(STDIN.read)"'
+
 # Environment Variables
 # =====================
-
-# Git merge autoedit
-# This variable configures git to not require a message when you merge.
-export GIT_MERGE_AUTOEDIT='no'
+# Git
+# https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
+export GIT_MERGE_AUTOEDIT="no"
+export GIT_AUTHOR_NAME="Kate Travers"
+export GIT_COMMITTER_NAME="Kate Travers"
 
 # Editors
 # Tells your shell that when a program requires various editors, use sublime.
@@ -162,13 +150,27 @@ export EDITOR="subl -w"
 export ZSH="/Users/$USER/.oh-my-zsh"
 
 # Build PATH
-export USR_PATHS="/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin"
+# =====================
+# Add current directory bin
+export USR_PATHS="bin"
+
+# Add system local
+export USR_PATHS="$USR_PATHS:/usr/local"
+
+# Add homebrew's bin and sbin
+export USR_PATHS="$USR_PATHS:/usr/local/bin"
+export USR_PATHS="$USR_PATHS:/usr/local/sbin"
+
+# Add system bin
+export USR_PATHS="$USR_PATHS:/usr/bin"
+
 export PATH="$USR_PATHS:$PATH"
 
+# Final setup
+# =====================
 export GPG_TTY=$(tty)
 
 eval "$(direnv hook zsh)"
-eval "$(hub alias -s)"
 
 source $ZSH/oh-my-zsh.sh
 
