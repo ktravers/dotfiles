@@ -1,8 +1,15 @@
 [
-  {"keys": ["super+shift+w"], "command": "close_all"},
+  { "keys": ["super+shift+w"], "command": "close_all"},
+  { "keys": ["super+shift+r"], "command": "reveal_in_side_bar" },
   { "keys": ["ctrl+alt+shift+down"], "command": "goto_definition" },
+  { "keys": ["super+p"], "command": "markdown_preview", "args": {"target": "browser", "parser":"markdown"} },
+  { "keys": ["super+k"], "command": "insert_snippet", "args": { "contents": "[$SELECTION](${0})" }, "context":
+    [
+      { "key": "selector", "operator": "equal", "operand": "text.html.markdown" },
+      { "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true }
+    ]
+  },
   { "keys": ["alt+c"], "command": "insert_snippet", "args": { "contents": "console.log(${1:}$SELECTION);${0}" } },
   { "keys": ["alt+d"], "command": "insert_snippet", "args": { "contents": "debugger;" } },
-  { "keys": ["alt+b"], "command": "insert_snippet", "args": { "contents": "binding.pry" } },
-  { "keys": ["super+shift+r"], "command": "reveal_in_side_bar" }
+  { "keys": ["alt+b"], "command": "insert_snippet", "args": { "contents": "binding.pry" } }
 ]
