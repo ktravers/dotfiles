@@ -42,8 +42,7 @@ function railsup () {
   git gc                                    # compress
   bundle                                    # run bundler to install/update gems
   yarn install                              # run yarn install to install/update packages
-  bin/rake db:migrate RAILS_ENV=development # run dev db migrations
-  bin/rake db:migrate RAILS_ENV=test        # run test db migrations
+  bin/rails db:migrate db:test:prepare      # run db migrations
   git checkout -- db/schema.rb              # discard db schema changes
 }
 
@@ -65,6 +64,15 @@ function psg {
   FIRST=`echo $1 | sed -e 's/^\(.\).*/\1/'`
   REST=`echo $1 | sed -e 's/^.\(.*\)/\1/'`
   ps aux | grep "[$FIRST]$REST"
+}
+
+# A function to easily grep for a matching process via lsof
+# USE: lsofg 8127
+# USE: lsofg ruby
+function lsofg {
+  FIRST=`echo $1 | sed -e 's/^\(.\).*/\1/'`
+  REST=`echo $1 | sed -e 's/^.\(.*\)/\1/'`
+  lsof -n -i | grep "[$FIRST]$REST"
 }
 
 # A function to git clone a repo, cd into the newly created directory,
@@ -108,7 +116,7 @@ alias gca!='git commit --amend --no-edit'
 alias glr="git pull --rebase --prune && git gc"
 alias gst="git status"
 alias gsv="git status -vv"
-alias gus="git reset HEAD"
+alias grh="git reset HEAD"
 alias repush="git pull --rebase && git push"
 alias stash="git stash -u"
 
