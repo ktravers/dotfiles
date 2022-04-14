@@ -12,7 +12,7 @@ plugins=(
   dotenv
   gpg-agent
   mix
-  osx
+  macos
   sublime
 )
 
@@ -25,12 +25,12 @@ PROMPT='
 # Helper Functions
 # =====================
 # A function to CD into my development directory from anywhere
-function development {
+function development () {
   cd /Users/$USER/Development/$@
 }
 
 # A function to CD into my local blog directory from anywhere
-function blog {
+function blog () {
   cd /Users/$USER/Development/ktravers.github.io/$@
 }
 
@@ -59,17 +59,17 @@ function mixup () {
 }
 
 # A function to easily grep for a matching process
-# USE: psg postgres
-function psg {
+# USE: findbyname postgres
+function findbyname {
   FIRST=`echo $1 | sed -e 's/^\(.\).*/\1/'`
   REST=`echo $1 | sed -e 's/^.\(.*\)/\1/'`
   ps aux | grep "[$FIRST]$REST"
 }
 
 # A function to easily grep for a matching process via lsof
-# USE: lsofg 8127
-# USE: lsofg ruby
-function lsofg {
+# USE: findbyport 8127
+# USE: findbyport ruby
+function findbyport {
   FIRST=`echo $1 | sed -e 's/^\(.\).*/\1/'`
   REST=`echo $1 | sed -e 's/^.\(.*\)/\1/'`
   lsof -n -i | grep "[$FIRST]$REST"
@@ -99,7 +99,8 @@ function prev () {
   git checkout HEAD~
 }
 
-# Magical banner
+# Magical banner for pasting into Slack
+# USE: banner "hello world" wave globe
 # Source: @drewprice & @notactuallypagemcconnell
 function banner() {
   figlet -f banner "$1" | sed -e"s/#/:$2:/g" | sed -e"s/ /:$3:/g" | pbcopy
@@ -142,7 +143,9 @@ alias inflate='ruby -r zlib -e "STDOUT.write Zlib::Inflate.inflate(STDIN.read)"'
 # https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
 export GIT_MERGE_AUTOEDIT="no"
 export GIT_AUTHOR_NAME="Kate Travers"
+export GIT_AUTHOR_EMAIL="MYGITEMAIL@ADDRESS.COM"
 export GIT_COMMITTER_NAME="Kate Travers"
+export GIT_COMMITTER_EMAIL="MYGITEMAIL@ADDRESS.COM"
 
 # Editors
 # Tells your shell that when a program requires various editors, use sublime.
@@ -151,6 +154,14 @@ export VISUAL="subl -w"
 export SVN_EDITOR="subl -w"
 export GIT_EDITOR="subl -w"
 export EDITOR="subl -w"
+
+# Codespaces (gh/gh)
+# Sets required ENV variables and increases open file limits
+# See https://github.com/github/codespaces#working-on-codespaces
+export CODESPACES_SPN_CLIENT_SECRET="SECRET"
+export CODESPACES_REGISTRY_PASSWORD="PASSWORD"
+ulimit -n 200000
+ulimit -u 2048
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/$USER/.oh-my-zsh"
