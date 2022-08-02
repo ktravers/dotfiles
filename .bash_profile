@@ -187,21 +187,22 @@ alias dbmtest='rake db:migrate RAILS_ENV=test'
 alias dbmdev='rake db:migrate RAILS_ENV=development'
 
 # Git
-alias gco="git checkout"
-alias gcl="git clone"
-alias gst="git status"
-alias gd="git diff | mate"
-alias gl="git pull"
-alias glr="git pull --rebase --prune"
-alias gp="git push"
-alias gc="git commit -v"
-alias gca="git commit -v -a"
-alias gcam="git commit -am"
 alias gba="git branch -a"
 alias gbv="git branch -v"
 alias gbdall="git branch | grep -v 'master' | xargs git branch -D"
+alias gc="git commit -v"
+alias gca="git commit -v -a"
+alias gcam="git commit -am"
 alias gcm="git checkout master"
+alias gco="git checkout"
+alias gcl="git clone"
+alias gd="git diff | mate"
+alias gl="git pull"
+alias glp="git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)<%aN>%Creset' -10"
+alias glr="git pull --rebase --prune"
+alias gp="git push"
 alias grm="git rebase master"
+alias gst="git status"
 
 # Jekyll
 alias js='jekyll serve'
