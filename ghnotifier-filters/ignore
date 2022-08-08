@@ -1,0 +1,1 @@
+name CONTAINS[c] "Tracking" OR name CONTAINS[c] "Grouped deploy branch" OR ANY labels CONTAINS[c] "Deploy train" OR type ==[c] "TeamDiscussion" OR draft ==[c] 1 OR state ==[c] "CLOSED" OR state ==[c] "MERGED"
