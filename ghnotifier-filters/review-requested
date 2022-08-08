@@ -1,0 +1,1 @@
+reason ==[c] "REVIEW_REQUESTED" AND ANY reviewRequests CONTAINS[c] "$me" AND (NOT (ANY labels CONTAINS[c] "Deploy train" OR draft ==[c] 1))
