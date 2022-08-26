@@ -1,0 +1,27 @@
+[color]
+  ui = auto
+[commit]
+	gpgsign = true
+[credential]
+	helper = osxkeychain
+[fetch]
+	prune = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[github]
+	user = ktravers
+[init]
+  defaultBranch = main
+[pager]
+	branch = false
+[push]
+	default = simple
+[rebase]
+	autosquash = true
+[user]
+	name = Kate Travers
+	email = $GIT_EMAIL
+	signingkey = $GIT_SIGNING_KEY
