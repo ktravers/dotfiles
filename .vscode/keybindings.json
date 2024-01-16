@@ -1,0 +1,37 @@
+[
+  {
+    "key": "ctrl+shift+alt+down",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "f12",
+    "command": "-editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "shift+alt+cmd+2",
+    "command": "workbench.action.editorLayoutTwoRows"
+  },
+  {
+    "key": "alt+cmd+2",
+    "command": "workbench.action.editorLayoutTwoColumns"
+  },
+  {
+    "key": "alt+cmd+1",
+    "command": "workbench.action.editorLayoutSingle"
+  },
+  {
+    "key": "shift+cmd+w",
+    "command": "workbench.action.closeWindow",
+    "when": "!editorIsOpen && !multipleEditorGroups"
+  },
+  {
+    "key": "shift+cmd+w",
+    "command": "-workbench.action.closeWindow"
+  },
+  {
+    "key": "shift+alt+cmd+.",
+    "command": "eslint.executeAutofix"
+  }
+]
