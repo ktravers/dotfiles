@@ -1,0 +1,22 @@
+# wip
+
+Apps
+- ImageOptim https://imageoptim.com/mac
+- Spectacle
+- VSCode
+- Alfred
+- GPG Suite https://gpgtools.org/#gpgsuite
+- iTerm2
+
+Libraries
+- homebrew
+- asdf
+- coreutils git curl
+- shellenv
+- direnv
+- ohmyzsh
+- pinentry-mac
+
+Tasks
+- generate ssh key
+- generate gpg key
