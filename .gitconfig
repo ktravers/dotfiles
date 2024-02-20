@@ -1,7 +1,8 @@
 [color]
-  ui = auto
+	ui = auto
 [commit]
 	gpgsign = true
+	verbose = true
 [credential]
 	helper = osxkeychain
 [fetch]
@@ -14,13 +15,18 @@
 [github]
 	user = ktravers
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [pager]
 	branch = false
+[pull]
+	rebase = true
 [push]
 	default = simple
+	autosetupremote = true
 [rebase]
 	autosquash = true
+[rerere]
+	enabled = true
 [user]
 	name = Kate Travers
 	email = $GIT_EMAIL
