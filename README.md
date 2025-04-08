@@ -1,3 +1,3 @@
 # dotfiles
 
-Enjoy these scrummy dotfiles.
+File all your dots.
