@@ -1,3 +1,3 @@
 # dotfiles
 
-Enjoy these scrummy dotfiles.
+Enjoy these dotfiles.
